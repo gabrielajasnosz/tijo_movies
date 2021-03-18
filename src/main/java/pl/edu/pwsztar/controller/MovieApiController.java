@@ -15,7 +15,7 @@ import pl.edu.pwsztar.service.MovieService;
 import java.util.List;
 
 @Controller
-@RequestMapping(value="/api")
+@RequestMapping(value = "/api")
 public class MovieApiController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(MovieApiController.class);
@@ -40,8 +40,16 @@ public class MovieApiController {
     @PostMapping(value = "/movies", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<?> createMovie(@RequestBody CreateMovieDto createMovieDto) {
         LOGGER.info("create movie: {}", createMovieDto);
-
+        movieService.createMovie(createMovieDto);
         // TODO: Prosze dokonczyc implementacje
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+    @PostMapping(value = "/movies", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<?> deleteMovie(@RequestParam Integer id) {
+        movieService.deleteMovie(id);
+        // TODO: Prosze dokonczyc implementacje
+        return new ResponseEntity<>(HttpStatus.CREATED);
+    }
+
 }

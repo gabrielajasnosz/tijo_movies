@@ -20,7 +20,7 @@
   				html += '<h3>' + value.title + '</h3>';
   				html += '<p class="title">Rok produkcji</p>';
   				html += '<p>' + (value.year === undefined ? "????" : value.year) + '</p>';
-				html += '<p><button>ID: ' + value.movieId + '</button></p>';
+				html += '<p><button id='+'movie'+'_'+value.movieId+'>ID: ' + value.movieId + '</button></p>';
 				html += '</div>';
         	});
 
@@ -41,6 +41,11 @@
             $('#add-movie').click(function() {
                 window.location.href='add-movie.html';
             })
+
+        });
+        $("#movies").(function(e) {
+            e.preventDefault();
+            addMovie();
         });
 
 		</script>
